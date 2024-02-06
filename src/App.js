@@ -1,6 +1,8 @@
+import Accordion from "./components";
+
 function App() {
   return (
-    <h1>test</h1>
+    <Accordion/>
   );
 }
 
