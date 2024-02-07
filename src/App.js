@@ -1,4 +1,4 @@
-import Accordion from "./components/Accordion";
+// import Accordion from "./components/Accordion";
 import RandomColor from "./components/random-color";
 
 function App() {
