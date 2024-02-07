@@ -1,16 +1,23 @@
 import { FaStar } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./styles.css";
 
 export default function StarRating({ noOfStars }) {
   const [currentStar, setCurrentStar] = useState(0);
+  const [dynamicStar, setdynamicStar] = useState(0);
 
   function handleClick(index) {
     setCurrentStar(index);
-    console.log(currentStar);
+    setdynamicStar(index);
   }
 
-  function handleMouseMove(index) {}
+  function handleMouseMove(index) {
+    setdynamicStar(index);
+  }
+
+  function handleMouseLeave(index) {
+    setdynamicStar(currentStar);
+  }
 
   return (
     <div className="star-rating">
@@ -18,10 +25,11 @@ export default function StarRating({ noOfStars }) {
         index += 1;
         return (
           <FaStar
-            className={index <= currentStar ? "active" : "inactive"}
+            className={index <= dynamicStar ? "active" : "inactive"}
             key={index}
             onClick={() => handleClick(index)}
             onMouseMove={() => handleMouseMove(index)}
+            onMouseLeave={() => handleMouseLeave(index)}
           />
         );
       })}
